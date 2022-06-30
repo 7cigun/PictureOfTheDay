@@ -9,13 +9,15 @@ import ru.gb.pictureoftheday.BuildConfig
 import ru.gb.pictureoftheday.model.PictureOfTheDayResponseData
 import ru.gb.pictureoftheday.model.RepositoryImpl
 
-class PictureOfTheDayViewModel(private val liveData: MutableLiveData<AppState>, private val repositoryImpl: RepositoryImpl = RepositoryImpl()):ViewModel() {
+class PictureOfTheDayViewModel(private val liveData: MutableLiveData<AppState> = MutableLiveData(),
+                               private val repositoryImpl: RepositoryImpl = RepositoryImpl()):ViewModel() {
 
     fun getLiveData():MutableLiveData<AppState>{
         return liveData
     }
 
     fun sendRequest(){
+        liveData.postValue(AppState.Loading)
         repositoryImpl.getPictureOfTheDayApi().getPictureOfTheDay(BuildConfig.NASA_API_KEY).enqueue(callback)
     }
 

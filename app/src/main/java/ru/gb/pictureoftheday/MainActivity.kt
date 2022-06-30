@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import ru.gb.pictureoftheday.databinding.ActivityMainBinding
+import ru.gb.pictureoftheday.view.PictureOfTheDayFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,5 +24,9 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if(savedInstanceState == null){
+            supportFragmentManager.beginTransaction().replace(R.id.container, PictureOfTheDayFragment.newInstance()).commit()
+        }
     }
 }
