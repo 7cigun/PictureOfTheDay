@@ -3,6 +3,18 @@
     <style name="Base.Theme.PictureOfTheDay" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="chipStyle">@style/MyChipStyle</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    </style>
+
+    <style name="MyChipStyle" parent="Widget.Material3.Chip.Suggestion">
+        <item name="chipBackgroundColor">@drawable/my_selector_background_chip</item>
+        <item name="rippleColor">@color/yellow</item>
+        <item name="chipStrokeWidth">2dp</item>
+        <item name="chipStrokeColor">@color/magenta</item>
     </style>
 
     <style name="Theme.PictureOfTheDay" parent="Base.Theme.PictureOfTheDay" />
