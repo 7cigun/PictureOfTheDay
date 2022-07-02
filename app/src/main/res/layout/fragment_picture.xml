@@ -19,22 +19,41 @@
             android:id="@+id/chipYesterday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Yesterday" />
+            android:text="@string/yesterday" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipToday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Today" />
+            android:text="@string/today" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chipTDBY"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TDBY" />
+            android:text="@string/tdby" />
 
     </com.google.android.material.chip.ChipGroup>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
+        android:hint="@string/search_in_wiki"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_wikipedia"
+        app:helperText="@string/search_in_wiki"
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ru.gb.pictureoftheday.utils.MyImageView
         android:id="@+id/ImageView"
@@ -42,8 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:contentDescription="@string/photo_of_the_day_stub"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroup"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayout"
         tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

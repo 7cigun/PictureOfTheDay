@@ -7,4 +7,8 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="photo_of_the_day_stub" translatable="false">photo_of_the_day_stub</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="today">Today</string>
+    <string name="tdby">TDBY</string>
+    <string name="search_in_wiki">search in wiki</string>
 </resources>

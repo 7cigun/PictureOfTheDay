@@ -1,5 +1,7 @@
 package ru.gb.pictureoftheday.view
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,6 +18,11 @@ import java.time.Period
 import java.util.*
 
 class PictureOfTheDayFragment : Fragment() {
+
+    val date = LocalDate.parse("2022-02-07")
+    val todayDate = date.toString()
+    val yesterdayDate = date.minus(Period.of(0, 0, 1)).toString()
+    val TDBYDate = date.minus(Period.of(0, 0, 2)).toString()
 
     private var _binding: FragmentPictureBinding? = null
     private val binding get() = _binding!!
@@ -34,11 +41,6 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val date = LocalDate.parse("2022-02-07")
-        val todayDate = date.toString()
-        val yesterdayDate = date.minus(Period.of(0, 0, 1)).toString()
-        val TDBYDate = date.minus(Period.of(0, 0, 2)).toString()
-
         super.onViewCreated(view, savedInstanceState)
         viewModel.getLiveData().observe(viewLifecycleOwner
         ) {appState ->
@@ -47,6 +49,16 @@ class PictureOfTheDayFragment : Fragment() {
         Toast.makeText(requireContext(), todayDate, Toast.LENGTH_LONG).show()
         viewModel.sendRequest(todayDate)
 
+        getPictureByDate()
+
+        binding.inputLayout.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("https://en.wikipedia.org/wiki/${binding.input.text.toString()}")
+            })
+        }
+    }
+
+    private fun getPictureByDate(){
         binding.chipYesterday.setOnClickListener {
             Toast.makeText(requireContext(), yesterdayDate, Toast.LENGTH_LONG).show()
             viewModel.sendRequest(yesterdayDate)
@@ -61,7 +73,6 @@ class PictureOfTheDayFragment : Fragment() {
             Toast.makeText(requireContext(), TDBYDate, Toast.LENGTH_LONG).show()
             viewModel.sendRequest(TDBYDate)
         }
-
     }
 
     private fun renderData(appState: AppState) {
