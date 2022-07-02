@@ -5,6 +5,9 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
 
         <item name="chipStyle">@style/MyChipStyle</item>
+
+        <item name="textInputStyle">@style/MyTextInputLayoutStyle</item>
+
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
@@ -15,6 +18,10 @@
         <item name="rippleColor">@color/yellow</item>
         <item name="chipStrokeWidth">2dp</item>
         <item name="chipStrokeColor">@color/magenta</item>
+    </style>
+
+    <style name="MyTextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="helperTextTextColor">@color/magenta</item>
     </style>
 
     <style name="Theme.PictureOfTheDay" parent="Base.Theme.PictureOfTheDay" />

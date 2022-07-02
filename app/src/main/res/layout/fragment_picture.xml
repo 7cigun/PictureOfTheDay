@@ -36,14 +36,14 @@
     </com.google.android.material.chip.ChipGroup>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:theme="@style/MyTextInputLayoutStyle"
         android:id="@+id/inputLayout"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
         app:counterEnabled="true"
         app:counterMaxLength="20"
-        android:hint="@string/search_in_wiki"
+        android:hint="@string/ask_the_question"
         app:endIconMode="custom"
         app:endIconDrawable="@drawable/ic_wikipedia"
         app:helperText="@string/search_in_wiki"
