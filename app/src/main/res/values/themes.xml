@@ -4,26 +4,33 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
 
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
         <item name="rootColor">@color/blue</item>
         <item name="superColor">@color/yellow</item>
 
         <item name="colorPrimary">?attr/rootColor</item>
-        <item name="colorOnSurface">?rootColor</item>
+        <!--<item name="colorOnSurface">?rootColor</item>-->
         <item name="colorOnSecondaryContainer">?superColor</item>
         <item name="colorPrimaryContainer">?superColor</item>
-        <item name="colorSurface">?rootColor</item>
+        <!--<item name="colorSurface">?rootColor</item>-->
         <item name="colorOnSurfaceVariant">?superColor</item>
 
         <item name="chipStyle">@style/MyChipStyle</item>
 
         <item name="textInputStyle">@style/MyTextInputLayoutStyle</item>
 
+        <item name="bottomAppBarStyle">@style/MyAppBarStyle</item>
+
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    </style>
 
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="MyAppBarStyle" parent="Widget.Material3.BottomAppBar">
+        <item name="backgroundTint">?rootColor</item>
+        <item name="navigationIconTint">?superColor</item>
     </style>
 
     <style name="MyShapeAppearanceSmallComponent" parent="ShapeAppearance.Material3.SmallComponent">

@@ -2,11 +2,10 @@ package ru.gb.pictureoftheday
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.WindowCompat
 import androidx.navigation.ui.AppBarConfiguration
 import ru.gb.pictureoftheday.databinding.ActivityMainBinding
-import ru.gb.pictureoftheday.view.PictureOfTheDayFragment
+import ru.gb.pictureoftheday.view.picture.PictureOfTheDayFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if(savedInstanceState == null){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO)
+            //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO)
             supportFragmentManager.beginTransaction().replace(R.id.container, PictureOfTheDayFragment.newInstance()).commit()
         }
     }

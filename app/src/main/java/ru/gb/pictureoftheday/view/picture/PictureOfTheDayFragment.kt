@@ -1,16 +1,18 @@
-package ru.gb.pictureoftheday.view
+package ru.gb.pictureoftheday.view.picture
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import coil.load
+import ru.gb.pictureoftheday.MainActivity
+import ru.gb.pictureoftheday.R
 import ru.gb.pictureoftheday.databinding.FragmentPictureBinding
+import ru.gb.pictureoftheday.view.drawer.BottomNavigationDrawerFragment
+import ru.gb.pictureoftheday.view.settings.SettingsFragment
 import ru.gb.pictureoftheday.viewmodel.AppState
 import ru.gb.pictureoftheday.viewmodel.PictureOfTheDayViewModel
 import java.time.LocalDate
@@ -56,6 +58,29 @@ class PictureOfTheDayFragment : Fragment() {
                 data = Uri.parse("https://en.wikipedia.org/wiki/${binding.input.text.toString()}")
             })
         }
+        (requireActivity() as MainActivity).setSupportActionBar(binding.bottomAppBar)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_main, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_favorite -> {}
+            R.id.action_settings -> {
+                requireActivity().supportFragmentManager.beginTransaction().hide(this)
+                    .add(R.id.container, SettingsFragment.newInstance()).addToBackStack("").commit()
+            }
+            android.R.id.home -> {
+                activity?.let {
+                    BottomNavigationDrawerFragment().show(it.supportFragmentManager, "tag")
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun getPictureByDate(){

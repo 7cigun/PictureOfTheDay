@@ -12,4 +12,11 @@
     <string name="tdby">TDBY</string>
     <string name="search_in_wiki">search in wiki</string>
     <string name="ask_the_question">ask the question</string>
+    <string name="favourite">Favourite</string>
+    <string name="settings">Settings</string>
+    <string name="screen_1">Screen 1</string>
+    <string name="screen_2">Screen 2</string>
+    <string name="sky_theme">SkyTheme</string>
+    <string name="flower_theme">FlowerTheme</string>
+    <string name="lime_theme">LimeTheme</string>
 </resources>
