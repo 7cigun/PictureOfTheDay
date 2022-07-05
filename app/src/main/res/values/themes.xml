@@ -26,6 +26,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="MyShapeAppearanceSmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">cut</item>
+    </style>
+
     <style name="MyTextAppearanceBody2" parent="TextAppearance.MaterialComponents.Body2">
         <item name="fontFamily">@font/aclonica</item>
         <item name="android:fontFamily">@font/aclonica</item>
@@ -37,6 +41,7 @@
         <item name="rippleColor">?superColor</item>
         <item name="chipStrokeColor">?superColor</item>
         <item name="android:textAppearance">@style/MyTextAppearanceBody2</item>
+        <item name="shapeAppearance">@style/MyShapeAppearanceSmallComponent</item>
     </style>
 
     <style name="MyTextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox">
