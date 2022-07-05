@@ -8,6 +8,7 @@
     <color name="green">#00FF00</color>
     <color name="yellow">#FFFF00</color>
     <color name="orange">#FF6432</color>
-    <color name="magenta">#00E1FF</color>
+    <color name="magenta">#00ffff</color>
+    <color name="pink">#ff00ff</color>
 
 </resources>

@@ -4,6 +4,13 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
 
+        <item name="colorPrimary">?attr/rootColor</item>
+        <item name="colorOnSurface">?rootColor</item>
+        <item name="colorOnSecondaryContainer">?superColor</item>
+        <item name="colorPrimaryContainer">?superColor</item>
+        <item name="colorSurface">?rootColor</item>
+        <item name="colorOnSurfaceVariant">?superColor</item>
+
         <item name="chipStyle">@style/MyChipStyle</item>
 
         <item name="textInputStyle">@style/MyTextInputLayoutStyle</item>
@@ -11,18 +18,35 @@
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="MyChipStyle" parent="Widget.Material3.Chip.Suggestion">
-        <item name="chipBackgroundColor">@drawable/my_selector_background_chip</item>
-        <item name="rippleColor">@color/yellow</item>
-        <item name="chipStrokeWidth">2dp</item>
-        <item name="chipStrokeColor">@color/magenta</item>
+        <item name="chipBackgroundColor">?rootColor</item>
+        <item name="rippleColor">?superColor</item>
+        <item name="chipStrokeColor">?superColor</item>
     </style>
 
     <style name="MyTextInputLayoutStyle" parent="Widget.Material3.TextInputLayout.OutlinedBox">
-        <item name="helperTextTextColor">@color/magenta</item>
-    </style>
+        <item name="helperTextTextColor">?rootColor</item>
+    </style>-->
 
     <style name="Theme.PictureOfTheDay" parent="Base.Theme.PictureOfTheDay" />
+
+    <style name="SkyTheme" parent="Base.Theme.PictureOfTheDay">
+        <item name="rootColor">@color/blue</item>
+        <item name="superColor">@color/yellow</item>
+    </style>
+
+    <style name="SpeedTheme" parent="Base.Theme.PictureOfTheDay">
+        <item name="rootColor">@color/red</item>
+        <item name="superColor">@color/magenta</item>
+    </style>
+
+    <style name="FlowerTheme" parent="Base.Theme.PictureOfTheDay">
+        <item name="rootColor">@color/green</item>
+        <item name="superColor">@color/pink</item>
+    </style>
 </resources>

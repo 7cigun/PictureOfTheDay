@@ -3,5 +3,18 @@
     <style name="Base.Theme.PictureOfTheDay" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">?rootColor</item>
+        <item name="colorPrimaryVariant">?superColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">?rootColor</item>
+        <item name="colorSecondaryVariant">?superColor</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="rootColor">@color/blue</item>
+        <item name="superColor">@color/white</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 </resources>
