@@ -19,4 +19,8 @@
     <string name="sky_theme">SkyTheme</string>
     <string name="flower_theme">FlowerTheme</string>
     <string name="lime_theme">LimeTheme</string>
+
+    <string name="earth">Earth</string>
+    <string name="mars">Mars</string>
+    <string name="system">System</string>
 </resources>
