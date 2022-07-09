@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PictureOfTheDay</string>
+    <string name="action_settings">Настройки</string>
+    <string name="yesterday">Вчера</string>
+    <string name="today">Сегодня</string>
+    <string name="tdby">Позавчера</string>
+    <string name="search_in_wiki">поиск в Вики</string>
+    <string name="ask_the_question">задай вопрос</string>
+    <string name="favourite">Избранное</string>
+    <string name="settings">Настройки</string>
+    <string name="sky_theme">Небесная</string>
+    <string name="flower_theme">Цветочная</string>
+    <string name="lime_theme">Лайм</string>
+    <string name="earth">Земля</string>
+    <string name="mars">Марс</string>
+    <string name="system">С. система</string>
+</resources>
