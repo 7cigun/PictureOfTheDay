@@ -1,30 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.google.android.material.tabs.TabLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:text="Выберите тему приложения:"
+        android:gravity="center"
+        android:textColor="?colorPrimary"
+        android:textSize="20sp" />
 
-        <com.google.android.material.tabs.TabItem
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/btnSkyTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sky_theme" />
+            android:text="@string/sky_theme"
+            android:textColor="?rootColor" />
 
-        <com.google.android.material.tabs.TabItem
+        <RadioButton
+            android:id="@+id/btnFlowerTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/flower_theme" />
+            android:text="@string/flower_theme"
+            android:textColor="?rootColor" />
 
-        <com.google.android.material.tabs.TabItem
+        <RadioButton
+            android:id="@+id/btnLimeTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/lime_theme" />
-    </com.google.android.material.tabs.TabLayout>
+            android:text="@string/lime_theme"
+            android:textColor="?rootColor" />
+    </RadioGroup>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
