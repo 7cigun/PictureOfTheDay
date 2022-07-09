@@ -23,9 +23,19 @@
 
         <item name="bottomAppBarStyle">@style/MyAppBarStyle</item>
 
+        <item name="bottomNavigationStyle">@style/MyBottomNavigationView</item>
+
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    </style>
+
+    <style name="MyBottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemActiveIndicatorStyle">@style/MyActiveIndicatorStyle</item>
+    </style>
+
+    <style name="MyActiveIndicatorStyle" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">?rootColor</item>
     </style>
 
     <style name="MyAppBarStyle" parent="Widget.Material3.BottomAppBar">
