@@ -34,6 +34,8 @@ class SettingsFragment : Fragment(), View.OnClickListener {
         return binding.root
     }
 
+    var flag = true
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSkyTheme.setOnClickListener(this)
@@ -41,9 +43,15 @@ class SettingsFragment : Fragment(), View.OnClickListener {
         binding.btnLimeTheme.setOnClickListener(this)
 
         when (parentActivity.getCurrentTheme()) {
-            1 -> binding.radioGroup.check(R.id.btnSkyTheme)
-            2 -> binding.radioGroup.check(R.id.btnFlowerTheme)
-            3 -> binding.radioGroup.check(R.id.btnLimeTheme)
+            1 -> binding.btnSkyTheme
+            2 -> binding.btnFlowerTheme
+            3 -> binding.btnLimeTheme
+        }
+
+        binding.textView.setOnClickListener {
+            flag = !flag
+            binding.group1.visibility = if (flag) View.VISIBLE else View.INVISIBLE
+
         }
     }
 
