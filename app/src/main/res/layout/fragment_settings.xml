@@ -33,6 +33,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.35" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSkyTheme"
         android:layout_width="wrap_content"
@@ -40,8 +61,8 @@
         android:text="@string/sky_theme"
         android:textColor="?superColor"
         app:layout_constraintBottom_toTopOf="@+id/btnFlowerTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineOne"
+        app:layout_constraintStart_toStartOf="@id/guidelineOne"
         app:layout_constraintTop_toBottomOf="@id/barrier"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintVertical_bias="0.1"/>
@@ -53,8 +74,8 @@
         android:text="@string/flower_theme"
         android:textColor="?superColor"
         app:layout_constraintBottom_toTopOf="@+id/btnLimeTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineTwo"
+        app:layout_constraintStart_toStartOf="@id/guidelineTwo"
         app:layout_constraintTop_toBottomOf="@+id/btnSkyTheme" />
 
     <com.google.android.material.button.MaterialButton
@@ -64,8 +85,8 @@
         android:text="@string/lime_theme"
         android:textColor="?superColor"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineThree"
+        app:layout_constraintStart_toStartOf="@id/guidelineThree"
         app:layout_constraintTop_toBottomOf="@+id/btnFlowerTheme" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
