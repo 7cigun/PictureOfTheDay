@@ -50,7 +50,7 @@ class SettingsFragment : Fragment(), View.OnClickListener {
 
         binding.textView.setOnClickListener {
             flag = !flag
-            binding.group1.visibility = if (flag) View.VISIBLE else View.INVISIBLE
+            binding.groupOne.visibility = if (flag) View.VISIBLE else View.INVISIBLE
 
         }
     }

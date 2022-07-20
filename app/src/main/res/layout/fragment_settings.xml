@@ -14,7 +14,7 @@
         app:constraint_referenced_ids="textView" />
 
     <androidx.constraintlayout.widget.Group
-        android:id="@+id/group1"
+        android:id="@+id/group_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="btnFlowerTheme,btnLimeTheme,btnSkyTheme"/>

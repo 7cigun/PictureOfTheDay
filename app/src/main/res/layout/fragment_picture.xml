@@ -58,7 +58,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:contentDescription="@string/photo_of_the_day_stub"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="0dp"
+        app:layout_behavior=".view.behaviors.AlphaBehavior"/>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:visibility="gone"
