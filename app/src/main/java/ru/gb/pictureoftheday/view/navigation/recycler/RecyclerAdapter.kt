@@ -8,21 +8,21 @@ import ru.gb.pictureoftheday.databinding.FragmentRecyclerItemEarthBinding
 import ru.gb.pictureoftheday.databinding.FragmentRecyclerItemHeaderBinding
 import ru.gb.pictureoftheday.databinding.FragmentRecyclerItemMarsBinding
 
-class RecyclerAdapter(private var listData: MutableList<Data>, val callbackAdd: AddItem, val callbackRemove: RemoveItem) :
+class RecyclerAdapter(private var listData: MutableList<Pair<Data,Boolean>>, val callbackAdd: AddItem, val callbackRemove: RemoveItem) :
     RecyclerView.Adapter<RecyclerAdapter.BaseViewHolder>() {
 
-    fun setListDataRemove(listDataNew: MutableList<Data>,position: Int){
+    fun setListDataRemove(listDataNew: MutableList<Pair<Data,Boolean>>,position: Int){
         listData = listDataNew
         notifyItemRemoved(position)
     }
 
-    fun setListDataAdd(listDataNew: MutableList<Data>,position: Int){
+    fun setListDataAdd(listDataNew: MutableList<Pair<Data,Boolean>>,position: Int){
         listData = listDataNew
         notifyItemInserted(position)
     }
 
     override fun getItemViewType(position: Int): Int {
-        return listData[position].type
+        return listData[position].first.type
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
@@ -55,22 +55,22 @@ class RecyclerAdapter(private var listData: MutableList<Data>, val callbackAdd: 
 
     class HeaderViewHolder(val binding: FragmentRecyclerItemHeaderBinding) :
         BaseViewHolder(binding.root) {
-        override fun bind(data:Data){
-            binding.name.text = data.name
+        override fun bind(data: Pair<Data,Boolean>) {
+            binding.name.text = data.first.name
         }
     }
 
     class EarthViewHolder(val binding: FragmentRecyclerItemEarthBinding) :
         BaseViewHolder(binding.root) {
-        override fun bind(data:Data){
-            binding.name.text = data.name
+        override fun bind(data: Pair<Data,Boolean>) {
+            binding.name.text = data.first.name
         }
     }
 
     inner class MarsViewHolder(val binding: FragmentRecyclerItemMarsBinding) :
         BaseViewHolder(binding.root) {
-        override fun bind(data:Data){
-            binding.name.text = data.name
+        override fun bind(data: Pair<Data, Boolean>){
+            binding.name.text = data.first.name
             binding.addItemImageView.setOnClickListener {
                 callbackAdd.add(layoutPosition)
             }
@@ -94,11 +94,20 @@ class RecyclerAdapter(private var listData: MutableList<Data>, val callbackAdd: 
                     notifyItemMoved(layoutPosition, layoutPosition + 1)
                 }
             }
+
+            binding.marsDescriptionTextView.visibility = if(listData[layoutPosition].second) View.VISIBLE else View.GONE
+
+            binding.marsImageView.setOnClickListener {
+                listData[layoutPosition] = listData[layoutPosition].let {
+                    it.first to !it.second
+                }
+                notifyItemChanged(layoutPosition)
+            }
         }
     }
 
     abstract class BaseViewHolder(view: View) :
         RecyclerView.ViewHolder(view) {
-        abstract fun bind(data: Data)
+        abstract fun bind(data: Pair<Data,Boolean>)
     }
 }

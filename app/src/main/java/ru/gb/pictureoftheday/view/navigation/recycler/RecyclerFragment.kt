@@ -15,14 +15,14 @@ class RecyclerFragment : Fragment() {
     private var _binding: FragmentRecyclerBinding? = null
     private val binding get() = _binding!!
     val data = arrayListOf(
-        Data("Заголовок",type= TYPE_HEADER),
-        Data("Earth",type=TYPE_EARTH),
-        Data("Earth",type=TYPE_EARTH),
-        Data("Mars", type= TYPE_MARS),
-        Data("Earth",type=TYPE_EARTH),
-        Data("Earth",type=TYPE_EARTH),
-        Data("Earth",type=TYPE_EARTH),
-        Data("Mars", type=TYPE_MARS)
+        Pair(Data("Заголовок", type = TYPE_HEADER), false),
+        Pair(Data("Earth", type = TYPE_EARTH), false),
+        Pair(Data("Earth", type = TYPE_EARTH), false),
+        Pair(Data("Mars", type = TYPE_MARS), false),
+        Pair(Data("Earth", type = TYPE_EARTH), false),
+        Pair(Data("Earth", type = TYPE_EARTH), false),
+        Pair(Data("Earth", type = TYPE_EARTH), false),
+        Pair(Data("Mars", type = TYPE_MARS), false)
     )
     lateinit var adapter: RecyclerAdapter
 
@@ -41,7 +41,7 @@ class RecyclerFragment : Fragment() {
     }
 
     private val callbackAdd = AddItem {
-        data.add(it, Data("Mars(New)", type= TYPE_MARS))
+        data.add(it, Pair(Data("Mars(New)", type= TYPE_MARS),false))
         adapter.setListDataAdd(data,it)
     }
     private val callbackRemove = RemoveItem {
