@@ -78,17 +78,21 @@ class RecyclerAdapter(private var listData: MutableList<Data>, val callbackAdd: 
                 callbackRemove.remove(layoutPosition)
             }
             binding.moveItemUp.setOnClickListener {
-                listData.removeAt(layoutPosition).apply {
-                    listData.add(layoutPosition-1,this)
+                if (layoutPosition > 1) {
+                    listData.removeAt(layoutPosition).apply {
+                        listData.add(layoutPosition - 1, this)
+                    }
+                    notifyItemMoved(layoutPosition, layoutPosition - 1)
                 }
-                notifyItemMoved(layoutPosition,layoutPosition-1)
             }
 
             binding.moveItemDown.setOnClickListener {
-                listData.removeAt(layoutPosition).apply {
-                    listData.add(layoutPosition+1,this)
+                if (layoutPosition < listData.size -1 ) {
+                    listData.removeAt(layoutPosition).apply {
+                        listData.add(layoutPosition + 1, this)
+                    }
+                    notifyItemMoved(layoutPosition, layoutPosition + 1)
                 }
-                notifyItemMoved(layoutPosition,layoutPosition+1)
             }
         }
     }
