@@ -3,12 +3,17 @@ package ru.gb.pictureoftheday.view.navigation.recycler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import ru.gb.pictureoftheday.R
 import ru.gb.pictureoftheday.databinding.FragmentRecyclerItemEarthBinding
 import ru.gb.pictureoftheday.databinding.FragmentRecyclerItemHeaderBinding
 import ru.gb.pictureoftheday.databinding.FragmentRecyclerItemMarsBinding
+import ru.gb.pictureoftheday.view.navigation.recycler.diffutil.Change
+import ru.gb.pictureoftheday.view.navigation.recycler.diffutil.DiffUtilCallback
+import ru.gb.pictureoftheday.view.navigation.recycler.diffutil.createCombinedPayload
 
 class RecyclerAdapter(
     private var listData: MutableList<Pair<Data, Boolean>>,
@@ -17,6 +22,11 @@ class RecyclerAdapter(
 ) :
     RecyclerView.Adapter<RecyclerAdapter.BaseViewHolder>(), ItemTouchHelperAdapter {
 
+    fun setListDataForDiffUtil(listDataNew: MutableList<Pair<Data, Boolean>>) {
+        val diff = DiffUtil.calculateDiff(DiffUtilCallback(listData, listDataNew))
+        diff.dispatchUpdatesTo(this)
+        listData= listDataNew
+    }
 
     fun setListDataRemove(listDataNew: MutableList<Pair<Data, Boolean>>, position: Int) {
         listData = listDataNew
@@ -54,6 +64,20 @@ class RecyclerAdapter(
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         holder.bind(listData[position])
+    }
+
+    override fun onBindViewHolder(
+        holder: BaseViewHolder,
+        position: Int,
+        payloads: MutableList<Any>
+    ) {
+        if (payloads.isEmpty()) {
+            super.onBindViewHolder(holder, position, payloads)
+        } else {
+            val createCombinedPayload = createCombinedPayload(payloads as List<Change<Pair<Data, Boolean>>>)
+            if(createCombinedPayload.newData.first.name!=createCombinedPayload.oldData.first.name)
+                holder.itemView.findViewById<TextView>(R.id.name).text =createCombinedPayload.newData.first.name
+        }
     }
 
     override fun getItemCount(): Int {
