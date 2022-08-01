@@ -1,13 +1,11 @@
 package ru.gb.pictureoftheday.view.navigation.recycler
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ItemTouchHelper
 import ru.gb.pictureoftheday.databinding.FragmentRecyclerBinding
 
 class RecyclerFragment : Fragment() {
@@ -37,7 +35,8 @@ class RecyclerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         adapter=  RecyclerAdapter(data,callbackAdd,callbackRemove)
-        binding.recyclerView.adapter =adapter
+        binding.recyclerView.adapter = adapter
+        ItemTouchHelper(ItemTouchHelperCallback(adapter)).attachToRecyclerView(binding.recyclerView)
     }
 
     private val callbackAdd = AddItem {
