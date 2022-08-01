@@ -16,4 +16,6 @@
     <string name="mars">Марс</string>
     <string name="system">С. система</string>
     <string name="choose_application_theme">Выберите тему приложения</string>
+    <string name="header">Заголовок</string>
+    <string name="additional_text">Дополнительный текст</string>
 </resources>

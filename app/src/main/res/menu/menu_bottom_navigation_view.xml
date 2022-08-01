@@ -20,4 +20,9 @@
         android:icon="@drawable/ic_settings_menu"
         android:title="@string/settings" />
 
+    <item
+        android:id="@+id/action_recycler"
+        android:icon="@drawable/ic_recycler"
+        android:title="@string/recycler" />
+
 </menu>

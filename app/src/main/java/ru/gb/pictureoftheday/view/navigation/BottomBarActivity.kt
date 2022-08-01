@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ru.gb.pictureoftheday.R
 import ru.gb.pictureoftheday.databinding.ActivityBottomBarBinding
+import ru.gb.pictureoftheday.view.navigation.recycler.RecyclerFragment
 import ru.gb.pictureoftheday.view.settings.SettingsFragment
 
 const val SkyTheme = 1
@@ -32,6 +33,7 @@ class BottomBarActivity : AppCompatActivity() {
                 R.id.action_view_mars ->{navigateTo(MarsFragment());true}
                 R.id.action_view_system ->{navigateTo(SystemFragment());  true}
                 R.id.action_settings ->{navigateTo(SettingsFragment());  true}
+                R.id.action_recycler ->{navigateTo(RecyclerFragment());  true}
                 else ->true
             }
 

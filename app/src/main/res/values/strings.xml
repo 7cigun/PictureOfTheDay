@@ -24,4 +24,7 @@
     <string name="mars">Mars</string>
     <string name="system">System</string>
     <string name="choose_application_theme">Choose application theme:</string>
+    <string name="recycler" translatable="false">Recycler</string>
+    <string name="header">Header</string>
+    <string name="additional_text">Additional text</string>
 </resources>
