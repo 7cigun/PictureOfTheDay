@@ -8,9 +8,18 @@ import ru.gb.pictureoftheday.databinding.FragmentRecyclerItemEarthBinding
 import ru.gb.pictureoftheday.databinding.FragmentRecyclerItemHeaderBinding
 import ru.gb.pictureoftheday.databinding.FragmentRecyclerItemMarsBinding
 
-class RecyclerAdapter(private val listData: List<Data>) :
+class RecyclerAdapter(private var listData: List<Data>, val callbackAdd: AddItem, val callbackRemove: RemoveItem) :
     RecyclerView.Adapter<RecyclerAdapter.BaseViewHolder>() {
 
+    fun setListDataRemove(listDataNew: List<Data>,position: Int){
+        listData = listDataNew
+        notifyItemRemoved(position)
+    }
+
+    fun setListDataAdd(listDataNew: List<Data>,position: Int){
+        listData = listDataNew
+        notifyItemInserted(position)
+    }
 
     override fun getItemViewType(position: Int): Int {
         return listData[position].type
@@ -58,10 +67,16 @@ class RecyclerAdapter(private val listData: List<Data>) :
         }
     }
 
-    class MarsViewHolder(val binding: FragmentRecyclerItemMarsBinding) :
+    inner class MarsViewHolder(val binding: FragmentRecyclerItemMarsBinding) :
         BaseViewHolder(binding.root) {
         override fun bind(data:Data){
             binding.name.text = data.name
+            binding.addItemImageView.setOnClickListener {
+                callbackAdd.add(layoutPosition)
+            }
+            binding.removeItemImageView.setOnClickListener {
+                callbackRemove.remove(layoutPosition)
+            }
         }
     }
 
