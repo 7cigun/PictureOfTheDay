@@ -1,6 +1,7 @@
 package ru.gb.pictureoftheday.view.picture
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
@@ -104,6 +105,8 @@ class PictureOfTheDayFragment : Fragment() {
             is AppState.Loading -> {}
             is AppState.Success -> {
                 binding.ImageView.load(appState.pictureOfTheDayResponseData.url)
+                binding.textView.text = appState.pictureOfTheDayResponseData.explanation
+                binding.textView.typeface = Typeface.createFromAsset(requireActivity().assets,"fonts/acme.ttf")
             }
         }
     }

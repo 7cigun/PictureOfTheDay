@@ -44,7 +44,8 @@
         android:hint="@string/ask_the_question"
         app:endIconMode="custom"
         app:endIconDrawable="@drawable/ic_wikipedia"
-        app:helperText="@string/search_in_wiki" >
+        app:helperText="@string/search_in_wiki"
+        android:visibility="gone">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input"
@@ -59,7 +60,19 @@
         android:layout_gravity="bottom"
         android:contentDescription="@string/photo_of_the_day_stub"
         tools:layout_editor_absoluteX="0dp"
-        app:layout_behavior=".view.behaviors.AlphaBehavior"/>
+        app:layout_behavior=".view.behaviors.AlphaBehavior"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="@string/photo_of_the_day_stub"
+        android:fontFamily="More Fonts..."
+        android:padding="@dimen/fragment_padding_iv"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayout" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:visibility="gone"
